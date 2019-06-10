@@ -82,6 +82,7 @@
 		C405B81922ADF33B000DA98C /* Reduction.SubModule.Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.SubModule.Builder.swift; sourceTree = "<group>"; };
 		C405B81B22ADF3BE000DA98C /* Reduction.HasSubModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.HasSubModule.swift; sourceTree = "<group>"; };
 		C405B81E22ADFC57000DA98C /* Reduction.Nibless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.Nibless.swift; sourceTree = "<group>"; };
+		C405B82022AE00A7000DA98C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C430524A22ADD7BD004F01B9 /* Reduction.SubModule.Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.SubModule.Bindable.swift; sourceTree = "<group>"; };
 		C430524D22ADD7EB004F01B9 /* Reduction.Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.Bindable.swift; sourceTree = "<group>"; };
 		C430524F22ADD8AF004F01B9 /* Reduction.State.Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.State.Components.swift; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		C4BD63AD22ADA1EB00104002 = {
 			isa = PBXGroup;
 			children = (
+				C405B82022AE00A7000DA98C /* README.md */,
 				C4BD63B922ADA1EB00104002 /* ReductionKit */,
 				C4BD63C422ADA1EB00104002 /* ReductionKitTests */,
 				C4BD63B822ADA1EB00104002 /* Products */,
