@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/ZkHaider/ReductionKit/master/.github/Assets/reduction_kit_logo.png" alt="ReductionKit by ZkHaider" width="400" />
+    <img src="https://raw.githubusercontent.com/ZkHaider/ReductionKit/master/.github/Assets/reduction_kit_logo.png" alt="ReductionKit by ZkHaider" width="300" />
 </p>
 
 #
