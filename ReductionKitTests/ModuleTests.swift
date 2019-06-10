@@ -1,5 +1,5 @@
 //
-//  ReductionKitTests.swift
+//  ModuleTests.swift
 //  ReductionKitTests
 //
 //  Created by Haider Khan on 6/9/19.
@@ -9,14 +9,33 @@
 import XCTest
 @testable import ReductionKit
 
-class ReductionKitTests: XCTestCase {
+final class MyComponent<M: SubModule>: Component<M> {
+    
+    override func bind(module: M) {
+        print("Binded")
+    }
+    
+}
 
+final class MyModule: SubModule {
+    
+    let myComponent = MyComponent()
+    
+}
+
+class ModuleTests: XCTestCase {
+    
     override func setUp() {
         
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+    
+    func testModuleBinding() {
+        let myModule = MyModule()
+        assert(myModule.myComponent.module == myModule, "Module Binded")
     }
 
     func testExample() {

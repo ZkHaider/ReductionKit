@@ -1,5 +1,5 @@
 //
-//  ReductionKitTests.swift
+//  View.Component.swift
 //  ReductionKitTests
 //
 //  Created by Haider Khan on 6/9/19.
@@ -9,10 +9,16 @@
 import XCTest
 @testable import ReductionKit
 
-class ReductionKitTests: XCTestCase {
+let componentBuilder: ComponentBuilder = .view(
+    .viewController(of: UIViewController.self)
+)
+
+class ViewComponentTests: XCTestCase {
 
     override func setUp() {
-        
+        let anyComponent = componentBuilder.build()
+        print("")
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
