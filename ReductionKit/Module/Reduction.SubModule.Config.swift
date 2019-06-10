@@ -32,7 +32,7 @@ extension ModuleConfig where A: SubModule {
         return ModuleConfig<A> { subModule in
             
             // Use reflection to get access to properties
-            let mirror = Mirror(reflecting: subModule)
+            let mirror = Mirror(reflecting: subModule.components)
             
             // Get tuples of (AnyComponent, Component<A>?) this way we can
             // differentiate between internal bind and just bind

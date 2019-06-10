@@ -43,6 +43,14 @@ extension ViewComponentBuilder: ViewComponents {
         }
     }
     
+    public static func niblessViewController<V>(
+        of type: V.Type) -> ViewComponentBuilder<M>
+        where V : NiblessViewController {
+        return ViewComponentBuilder {
+            return ViewControllerComponent<V, M>(viewController: type.init())
+        }
+    }
+    
     public static func view<V>(of type: V.Type) -> ViewComponentBuilder where V : UIView {
         return ViewComponentBuilder {
             ViewComponent<V, M>(view: type.init())
@@ -59,6 +67,14 @@ extension ViewComponentBuilder: ViewComponents {
                     fatalError("Could not load Xib file.")
             }
             return ViewComponent<V, M>(view: view)
+        }
+    }
+    
+    public static func niblessView<V>(
+        of type: V.Type) -> ViewComponentBuilder<M>
+        where V : NiblessView {
+        return ViewComponentBuilder {
+            return ViewComponent<V, M>(view: type.init())
         }
     }
     

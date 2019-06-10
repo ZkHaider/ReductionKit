@@ -14,7 +14,9 @@ public protocol ViewComponents {
     static func viewController<V: UIViewController>(of type: V.Type,
                                                     name: String,
                                                     with storyboard: Storyboard) -> Self
+    static func niblessViewController<V: NiblessViewController>(of type: V.Type) -> Self 
     static func view<V: UIView>(of type: V.Type) -> Self
     static func view<V: UIView>(of type: V.Type,
                                 with xib: Xib) -> Self
+    static func niblessView<V: NiblessView>(of type: V.Type) -> Self
 }

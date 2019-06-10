@@ -12,13 +12,17 @@ public typealias Reduxable = HasState & HasMiddleWare
 public typealias ViewReduxable = HasViewModel
 public typealias ModuleDescription = SubModuleComponentsBuilder
 
-open class SubModule: HasSubModule {
+open class SubModule: HasSubModule, AnyBindable {
     
     public typealias Module = Self
     
     open var moduleDescription: ModuleDescription {
         return .module()
     }
+    
+    internal lazy var components: [AnyComponent] = {
+        return self.moduleDescription.build()
+    }()
     
     public private(set) var moduleConfiguration: ModuleConfig<SubModule>? = nil
     

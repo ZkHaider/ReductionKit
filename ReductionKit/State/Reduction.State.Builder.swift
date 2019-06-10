@@ -17,11 +17,11 @@ public struct StateComponentsBuilder<M: SubModule> {
 
 extension StateComponentsBuilder: StateComponents {
     
-    public static func stateProvider<V>(
-        initialValue: V) -> StateComponentsBuilder<M>
-        where V : Equatable {
+    public static func stateProvider<S>(
+        initialState: S) -> StateComponentsBuilder<M>
+        where S : Equatable {
             return StateComponentsBuilder<M>(build: {
-                StateProvider<V, M>()
+                StateProvider<S, M>()
             })
     }
     

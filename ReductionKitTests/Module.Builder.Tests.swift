@@ -13,16 +13,33 @@ struct BuilderState: Equatable {
     
 }
 
+final class MyViewController: NiblessViewController, AnyComponent {
+    
+    var anyModule: SubModule?
+    func bind(any module: SubModule) {
+        
+    }
+    
+    
+    public required init() {
+        super.init()
+    }
+    
+}
+
+final class AnotherNiblessVC: NiblessViewController {}
+
 final class BuilderModule: SubModule {
 
     override var moduleDescription: ModuleDescription {
         .module(
             .state(
-                .stateProvider(initialValue: BuilderState()),
-                .stateProvider(initialValue: BuilderState())
+                .stateProvider(initialState: BuilderState())
             ),
-            .viewModel(),
-            .view()
+            .view(
+                .niblessViewController(of: AnotherNiblessVC.self),
+                .viewController(of: MyViewController.self)
+            )
         )
     }
     
