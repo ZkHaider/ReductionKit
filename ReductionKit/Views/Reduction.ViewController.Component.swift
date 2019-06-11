@@ -49,8 +49,4 @@ open class ViewControllerComponent<V: UIViewController, M: SubModule>: Component
         component.bind(any: module)
     }
     
-    open override func bind(module: Module) {
-        
-    }
-    
 }

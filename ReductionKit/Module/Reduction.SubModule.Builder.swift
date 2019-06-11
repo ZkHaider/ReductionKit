@@ -9,14 +9,18 @@
 import Foundation
 
 public struct SubModuleComponentsBuilder {
+    let buildSubModules: () -> ([SubModule])
     let buildComponents: () -> ([AnyComponent])
 }
 
 extension SubModuleComponentsBuilder: SubModuleComponents {
     
     public static func module(_ components: ComponentBuilder...) -> SubModuleComponentsBuilder {
-        return SubModuleComponentsBuilder {
-            components.reduce(into: [], { $0 += $1.build() })
-        }
+        return SubModuleComponentsBuilder(
+            buildSubModules: { components
+                .compactMap({ $0.buildModules() })
+                .reduce(into: [], { $0 += $1 }) },
+            buildComponents: { components.reduce(into: [], { $0 += $1.build() }) }
+        )
     }
 }

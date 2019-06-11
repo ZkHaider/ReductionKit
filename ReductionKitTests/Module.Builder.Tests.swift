@@ -36,6 +36,8 @@ final class AnotherNiblessVC: NiblessViewController, AnyComponent {
     
 }
 
+final class BuilderChildModule: SubModule {}
+
 final class BuilderModule: SubModule {
     
     let myReducer = Reducer<BuilderState, Any> { (state, value) in
@@ -45,7 +47,7 @@ final class BuilderModule: SubModule {
     override var moduleDescription: ModuleDescription {
         .module(
             .subModules(
-                
+                BuilderChildModule.self
             ),
             .state(
                 initialState: BuilderState(),

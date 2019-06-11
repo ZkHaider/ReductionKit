@@ -42,6 +42,12 @@ extension ModuleConfig where A: SubModule {
             internalComponents.forEach({ $0._bind(module: subModule) })
             viewComponents.forEach({ $0.bind(any: subModule) })
             weakViewComponents.forEach({ $0.bind(any: subModule) })
+            
+            subModule.subModules.lazy.forEach({
+                print("""
+                💫 Initialized Module: \($0.name)
+                """)
+            })
         }
     }
 }

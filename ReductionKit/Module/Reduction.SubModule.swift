@@ -8,8 +8,6 @@
 
 import Foundation
 
-public typealias Reduxable = HasState & HasMiddleWare
-public typealias ViewReduxable = HasViewModel
 public typealias ModuleDescription = SubModuleComponentsBuilder
 
 open class SubModule: HasSubModule, AnyBindable, Nameable {
@@ -26,7 +24,11 @@ open class SubModule: HasSubModule, AnyBindable, Nameable {
     
     // MARK: - SubModules
     
-    internal var moduleMap: [String: SubModule] = [:]
+    private lazy var moduleMap: [Name: SubModule] = {
+        return self.moduleDescription
+            .buildSubModules()
+            .reduce(into: [:], { $0[$1.name] = $1 })
+    }()
     
     // MARK: - Components
     

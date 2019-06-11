@@ -45,8 +45,4 @@ open class ViewComponent<V: UIView, M: SubModule>: Component<M>, InternalViewCom
         component.bind(any: module)
     }
     
-    open override func bind(module: Module) {
-        
-    }
-    
 }
