@@ -9,7 +9,7 @@
 import XCTest
 @testable import ReductionKit
 
-let componentBuilder: ComponentBuilder = .view(
+let componentBuilder: ComponentBuilder = .views(
     .viewController(of: UIViewController.self)
 )
 

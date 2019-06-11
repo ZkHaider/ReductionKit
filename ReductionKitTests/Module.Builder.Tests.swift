@@ -51,7 +51,7 @@ final class BuilderModule: SubModule {
                 initialState: BuilderState(),
                 myReducer
             ),
-            .view(
+            .views(
                 .niblessViewController(of: AnotherNiblessVC.self),
                 .viewController(of: MyViewController.self)
             )

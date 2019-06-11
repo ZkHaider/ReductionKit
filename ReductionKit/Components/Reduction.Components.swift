@@ -15,5 +15,5 @@ public protocol Components {
     static func state<S>(initialState: S, _ reducers: Reducer<S, Any>...) -> Self
     static func middleWare<M: SubModule>(_ middleWareComponents: MiddleWareComponentsBuilder<M>...) -> Self
     static func viewModel<M: SubModule>(_ viewModelComponents: ViewModelComponentsBuilder<M>...) -> Self
-    static func view<M: SubModule>(_ viewComponents: ViewComponentBuilder<M>...) -> Self
+    static func views<M: SubModule>(_ viewComponents: ViewComponentBuilder<M>...) -> Self
 }

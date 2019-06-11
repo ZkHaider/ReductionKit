@@ -75,7 +75,7 @@ extension ComponentBuilder: Components {
         )
     }
     
-    public static func view<M>(_ viewComponents: ViewComponentBuilder<M>...) -> ComponentBuilder where M : SubModule {
+    public static func views<M>(_ viewComponents: ViewComponentBuilder<M>...) -> ComponentBuilder where M : SubModule {
         return ComponentBuilder(
             buildModules: { nil },
             build: { viewComponents.compactMap({ $0.build() }) }
