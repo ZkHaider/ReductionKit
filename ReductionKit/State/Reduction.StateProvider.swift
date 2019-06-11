@@ -10,7 +10,14 @@ import Foundation
 
 open class StateProvider<V: Equatable, M: SubModule>: Component<M> {
     
-    public required override init() {
+    // MARK: - Attributes
+    
+    internal let reducers: [Reducer<V, Any>]
+    
+    // MARK: - Init
+    
+    public required init(_ reducers: [Reducer<V, Any>] = []) {
+        self.reducers = reducers
         super.init()
     }
     

@@ -9,7 +9,10 @@
 import Foundation
 
 public protocol Components {
-    static func state<M: SubModule>(_ stateComponents: StateComponentsBuilder<M>...) -> Self
+//    static func subModule<M: SubModule>(of type: M.Type) -> Self
+    static func subModules<M: SubModule>(_ subModules: M.Type...) -> Self
+//    static func state<M: SubModule>(_ stateComponents: StateComponentsBuilder<M>...) -> Self
+    static func state<S>(initialState: S, _ reducers: Reducer<S, Any>...) -> Self
     static func middleWare<M: SubModule>(_ middleWareComponents: MiddleWareComponentsBuilder<M>...) -> Self
     static func viewModel<M: SubModule>(_ viewModelComponents: ViewModelComponentsBuilder<M>...) -> Self
     static func view<M: SubModule>(_ viewComponents: ViewComponentBuilder<M>...) -> Self

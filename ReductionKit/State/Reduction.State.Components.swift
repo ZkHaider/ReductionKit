@@ -9,5 +9,6 @@
 import Foundation
 
 public protocol StateComponents {
-    static func stateProvider<S: Equatable>(initialState: S) -> Self
+    static func stateProvider<S: Equatable>(initialState: S,
+                                            _ reducers: [Reducer<S, Any>]) -> Self
 }

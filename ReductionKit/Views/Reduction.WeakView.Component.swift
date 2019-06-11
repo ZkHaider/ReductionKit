@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol AnyWeakViewComponent {
+public protocol AnyWeakViewComponent: AnyComponent {
     var anyWeakView: UIView? { get }
 }
 

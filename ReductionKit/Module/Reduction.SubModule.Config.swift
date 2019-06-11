@@ -31,35 +31,17 @@ extension ModuleConfig where A: SubModule {
     public static var initializer: ModuleConfig<A> {
         return ModuleConfig<A> { subModule in
             
-            // Use reflection to get access to properties
-            let mirror = Mirror(reflecting: subModule.components)
-            
-            // Get tuples of (AnyComponent, Component<A>?) this way we can
-            // differentiate between internal bind and just bind
-            let components: [(AnyComponent, Component<A>?)] = mirror
-                .children
-                .compactMap({ child -> (AnyComponent, Component<A>?)? in
-                    guard
-                        let internalComponent = child.value as? Component<A>
-                        else {
-                            guard
-                                let anyComponent = child.value as? AnyComponent
-                                else { return nil }
-                            return (anyComponent, nil)
-                    }
-                    return (internalComponent, internalComponent)
-                })
+            // Get components
+            let anyComponents: [AnyComponent] = subModule.components
+            let internalComponents: [Component] = subModule.internalComponents
+            let viewComponents: [AnyViewComponent] = subModule.viewComponents
+            let weakViewComponents: [AnyWeakViewComponent] = subModule.weakViewComponents
             
             // Bind
-            for (anyComponent, internalComponent) in components {
-                guard
-                    let internalComponent = internalComponent
-                    else {
-                        anyComponent.bind(any: subModule)
-                        continue
-                }
-                internalComponent._bind(module: subModule)
-            }
+            anyComponents.forEach({ $0.bind(any: subModule) })
+            internalComponents.forEach({ $0._bind(module: subModule) })
+            viewComponents.forEach({ $0.bind(any: subModule) })
+            weakViewComponents.forEach({ $0.bind(any: subModule) })
         }
     }
 }

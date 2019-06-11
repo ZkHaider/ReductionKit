@@ -9,7 +9,7 @@
 import Foundation
 
 public struct SubModuleComponentsBuilder {
-    let build: () -> ([AnyComponent])
+    let buildComponents: () -> ([AnyComponent])
 }
 
 extension SubModuleComponentsBuilder: SubModuleComponents {

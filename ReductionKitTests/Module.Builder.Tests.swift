@@ -17,7 +17,7 @@ final class MyViewController: NiblessViewController, AnyComponent {
     
     var anyModule: SubModule?
     func bind(any module: SubModule) {
-        
+        print("module: \(module)")
     }
     
     
@@ -27,14 +27,29 @@ final class MyViewController: NiblessViewController, AnyComponent {
     
 }
 
-final class AnotherNiblessVC: NiblessViewController {}
+final class AnotherNiblessVC: NiblessViewController, AnyComponent {
+    
+    var anyModule: SubModule?
+    func bind(any module: SubModule) {
+        print("module: \(module)")
+    }
+    
+}
 
 final class BuilderModule: SubModule {
+    
+    let myReducer = Reducer<BuilderState, Any> { (state, value) in
+        return nil
+    }
 
     override var moduleDescription: ModuleDescription {
         .module(
+            .subModules(
+                
+            ),
             .state(
-                .stateProvider(initialState: BuilderState())
+                initialState: BuilderState(),
+                myReducer
             ),
             .view(
                 .niblessViewController(of: AnotherNiblessVC.self),

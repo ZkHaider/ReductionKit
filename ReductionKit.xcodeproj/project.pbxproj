@@ -23,6 +23,9 @@
 		C405B81A22ADF33B000DA98C /* Reduction.SubModule.Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405B81922ADF33B000DA98C /* Reduction.SubModule.Builder.swift */; };
 		C405B81C22ADF3BE000DA98C /* Reduction.HasSubModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405B81B22ADF3BE000DA98C /* Reduction.HasSubModule.swift */; };
 		C405B81F22ADFC57000DA98C /* Reduction.Nibless.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405B81E22ADFC57000DA98C /* Reduction.Nibless.swift */; };
+		C405B82222AF59A6000DA98C /* Reduction.Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405B82122AF59A6000DA98C /* Reduction.Nameable.swift */; };
+		C405B82522AF5ED4000DA98C /* Reduction.Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405B82422AF5ED4000DA98C /* Reduction.Reducer.swift */; };
+		C405B82822AF5F1B000DA98C /* SideEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405B82722AF5F1B000DA98C /* SideEffects.swift */; };
 		C430524B22ADD7BD004F01B9 /* Reduction.SubModule.Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430524A22ADD7BD004F01B9 /* Reduction.SubModule.Bindable.swift */; };
 		C430524E22ADD7EB004F01B9 /* Reduction.Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430524D22ADD7EB004F01B9 /* Reduction.Bindable.swift */; };
 		C430525022ADD8AF004F01B9 /* Reduction.State.Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430524F22ADD8AF004F01B9 /* Reduction.State.Components.swift */; };
@@ -83,6 +86,9 @@
 		C405B81B22ADF3BE000DA98C /* Reduction.HasSubModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.HasSubModule.swift; sourceTree = "<group>"; };
 		C405B81E22ADFC57000DA98C /* Reduction.Nibless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.Nibless.swift; sourceTree = "<group>"; };
 		C405B82022AE00A7000DA98C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C405B82122AF59A6000DA98C /* Reduction.Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.Nameable.swift; sourceTree = "<group>"; };
+		C405B82422AF5ED4000DA98C /* Reduction.Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.Reducer.swift; sourceTree = "<group>"; };
+		C405B82722AF5F1B000DA98C /* SideEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffects.swift; sourceTree = "<group>"; };
 		C430524A22ADD7BD004F01B9 /* Reduction.SubModule.Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.SubModule.Bindable.swift; sourceTree = "<group>"; };
 		C430524D22ADD7EB004F01B9 /* Reduction.Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.Bindable.swift; sourceTree = "<group>"; };
 		C430524F22ADD8AF004F01B9 /* Reduction.State.Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduction.State.Components.swift; sourceTree = "<group>"; };
@@ -165,8 +171,25 @@
 			isa = PBXGroup;
 			children = (
 				C405B81E22ADFC57000DA98C /* Reduction.Nibless.swift */,
+				C405B82122AF59A6000DA98C /* Reduction.Nameable.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C405B82322AF5E64000DA98C /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				C405B82422AF5ED4000DA98C /* Reduction.Reducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		C405B82622AF5F0C000DA98C /* SideEffects */ = {
+			isa = PBXGroup;
+			children = (
+				C405B82722AF5F1B000DA98C /* SideEffects.swift */,
+			);
+			path = SideEffects;
 			sourceTree = "<group>";
 		};
 		C430524C22ADD7D9004F01B9 /* Bindable */ = {
@@ -204,6 +227,8 @@
 				C4BD63D522ADA2C800104002 /* Module */,
 				C430524C22ADD7D9004F01B9 /* Bindable */,
 				C4BD63D222ADA22100104002 /* Components */,
+				C405B82622AF5F0C000DA98C /* SideEffects */,
+				C405B82322AF5E64000DA98C /* Reducers */,
 				C4BD63D122ADA20F00104002 /* State */,
 				C405B7FF22ADE2A4000DA98C /* Middleware */,
 				C405B80622ADE6EF000DA98C /* ViewModel */,
@@ -416,8 +441,11 @@
 				C405B81822ADF19F000DA98C /* Reduction.HasViewModel.swift in Sources */,
 				C4BD63E022ADA9C500104002 /* Abstract.Monoid.Optional.swift in Sources */,
 				C4BD63DC22ADA46300104002 /* Abstract.Operator.swift in Sources */,
+				C405B82822AF5F1B000DA98C /* SideEffects.swift in Sources */,
 				C405B80E22ADE90D000DA98C /* Reduction.State.Component.swift in Sources */,
+				C405B82522AF5ED4000DA98C /* Reduction.Reducer.swift in Sources */,
 				C405B81A22ADF33B000DA98C /* Reduction.SubModule.Builder.swift in Sources */,
+				C405B82222AF59A6000DA98C /* Reduction.Nameable.swift in Sources */,
 				C430525222ADD95D004F01B9 /* Reduction.State.Builder.swift in Sources */,
 				C405B80C22ADE8F6000DA98C /* Reduction.ViewModel.Builder.swift in Sources */,
 				C4BD63FC22ADC36700104002 /* Reduction.View.Components.swift in Sources */,

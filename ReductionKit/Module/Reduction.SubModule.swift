@@ -12,19 +12,49 @@ public typealias Reduxable = HasState & HasMiddleWare
 public typealias ViewReduxable = HasViewModel
 public typealias ModuleDescription = SubModuleComponentsBuilder
 
-open class SubModule: HasSubModule, AnyBindable {
+open class SubModule: HasSubModule, AnyBindable, Nameable {
+    
+    // MARK: - Definitions
     
     public typealias Module = Self
+    
+    // MARK: - Module Description
     
     open var moduleDescription: ModuleDescription {
         return .module()
     }
     
+    // MARK: - SubModules
+    
+    internal var moduleMap: [String: SubModule] = [:]
+    
+    // MARK: - Components
+    
     internal lazy var components: [AnyComponent] = {
-        return self.moduleDescription.build()
+        return self.moduleDescription.buildComponents()
     }()
     
+    internal lazy var internalComponents: [Component] = {
+        return self.components.lazy.compactMap({ $0 as? Component })
+    }()
+
+    internal lazy var viewComponents: [AnyViewComponent] = {
+        return self.components.lazy.compactMap({ $0 as? AnyViewComponent })
+    }()
+    
+    internal lazy var weakViewComponents: [AnyWeakViewComponent] = {
+        return self.components.lazy.compactMap({ $0 as? AnyWeakViewComponent })
+    }()
+    
+    public var subModules: [SubModule] {
+        return Array(self.moduleMap.values)
+    }
+    
+    // MARK: - Configuration
+    
     public private(set) var moduleConfiguration: ModuleConfig<SubModule>? = nil
+    
+    // MARK: - Init
     
     public required init(
         with config: ModuleConfig<SubModule>? = ModuleConfig.initializer) {
